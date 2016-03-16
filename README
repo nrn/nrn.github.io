@@ -1,0 +1,6 @@
+# nrn's site
+
+`npm start` will launch a devserver hosting the site at http://localhost:9966
+
+## license: ISC
+
