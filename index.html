@@ -2,6 +2,9 @@
 <link rel="stylesheet" href="style.css">
 <title>Website</title>
 
+<!-- Load deps first so they can be used inline. -->
+<script src="build/common.js"></script>
+
 <main>
   <h1>Hello ${visitor}</h1>
   <div>
@@ -14,7 +17,7 @@
 
     <p>
       This site is an experiment in building from scratch, simply to do so.
-      A personal reminder of the problems the complexity of modern web
+      A personal reminder of the problems that the complexity of modern web
       development has arisen to solve.
     </p>
     <ul>
@@ -22,5 +25,4 @@
     </ul>
   </div>
 </main>
-<script src="bundle.js"></script>
-
+<script src="all.js"></script>

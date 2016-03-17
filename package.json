@@ -1,14 +1,19 @@
 {
   "name": "site",
+  "private": true,
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "wzrd entry.js:bundle.js **/entry.js:**/bundle.js"
+    "start": "./deps.sh; ecstatic . --port=3434"
   },
   "author": "Nick Niemeir <nick.niemeir@gmail.com>",
   "license": "ISC",
   "devDependencies": {
-    "wzrd": "^1.3.1"
+    "ecstatic": "^1.4.0"
+  },
+  "dependencies": {
+    "photocopy": "^3.2.3",
+    "universal-reduce": "^3.1.0"
   }
 }
