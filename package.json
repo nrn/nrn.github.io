@@ -5,11 +5,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "./deps.sh; ecstatic . --port=3434"
+    "start": "./deps.sh; ecstatic . --port=3434",
+    "prepublish": "./bundle-dependencies.js > build/common.js"
   },
   "author": "Nick Niemeir <nick.niemeir@gmail.com>",
   "license": "ISC",
   "devDependencies": {
+    "browserify": "^13.0.0",
     "ecstatic": "^1.4.0"
   },
   "dependencies": {

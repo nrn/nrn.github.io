@@ -6,3 +6,9 @@ body {
 main {
   max-width: 600px;
 }
+main script {
+  display: flex;
+  white-space: pre;
+  font-family: monospace;
+  background-color: #efefef;
+}
