@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="../style.css">
+
+<title>HTML in SVG</title>
+
+<script src="../build/common.js"></script>
+
+<nav class="top_nav">
+  <a href="../">Home</a>
+</nav>
+
+<main>
+  <h1>HTML in SVG</h1>
+  <h2>OMG YOU CAN PUT HTML IN SVG.</h2>
+  <p>
+  It is hard to overstate how excited I was when I figured
+  this out. I couldn't believe it. Anyone who has tried
+  to do text formatting and flow in SVG knows what a
+  nightmare it is. Even something as simple as two lines
+  of text with a background becomes a mind boggling chore.
+  <p>
+  I've worked with a couple of other solutions in the past;
+  overlaying absolutely positioned html on top of the SVG, and
+  building up a bunch of abstractions to help format the text
+  in SVG itself. The absolute positioning is super tedious,
+  making it track and position on a window relative grid that
+  lines up to the coordinates inside a translated scaled svg grid ends
+  up with a very brittle situation. Building up a bunch
+  of abstractions and pieces to put it together just means
+  a ton of layers to debug when things don't look right.
+  <p>
+  Enter our hero. <foreignObject>. It is an SVG tag that
+  allows non-SVG XML objects to be added inside of an SVG,
+  like it was inside the SVG at that point!
+  Check it out on
+  <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/foreignObject">mdn</a>
+  and
+  <a href="http://caniuse.com/#feat=svg-html">caniuse</a>.
+  Sure, support isn't perfect,
+  but it is wide spread. For simple use cases it
+  works in all modern browsers, and fall backs are available.
+  <div id="scratch_pad" style="height:100px;"></div>
+  <script>
+    var s = 225
+    function example () {
+      var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+      svg.style = 'width:100;height:100;'
+      svg.innerHTML = `
+      <g transform="translate(50, 50) rotate(${s+=45})">
+          <foreignObject height=50px width=50px>
+            <p style="background-color:orange;
+              color:puruple;
+              border-radius:50px;
+              padding:10px;"
+            >For real</p>
+          </foreignObject>
+        </g>
+      `
+      document.getElementById('scratch_pad').appendChild(svg)
+    }
+  </script>
+  <button onclick="example()">run</button>
+</main>
+<script src="../all.js"></script>
