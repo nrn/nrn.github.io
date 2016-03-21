@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<link rel="stylesheet" href="../style.css">
+<title>vimg</title>
+
+<script src="../bundle/common.js"></script>
+
+<nav class="top_nav">
+  <a href="../">Home</a>
+</nav>
+
+<main>
+  <h1>vimg</h1>
+
+  <p>
+  vimg is a simple bash function I wrote a couple of years ago.
+  <pre class="literal">
+    function vimg() {
+     files=`git grep -Ie $1 --name-only`
+     vim $files +/$1
+    }
+  </pre>
+  <p>
+  Just a couple of lines, but it is has has a huge impact on my work flow.
+  The usage is simple, inside of any git repository you type
+  <code class="literal">
+    vimg thingYouWantToFind
+  </code>
+  This gets a list of file names from grep that contain that patter, and
+  opens them all in vim, also highlighting the search term. Combining both
+  of those moves into one lets you quickly move through a code base to explore
+  and refactor.
+  <p>
+  vimg is short for "vim grep". The idea being that it is
+  similar to vimdiff, a wrapper around vim that opens up
+  a few files with options set for a specialized situation.
+  <p>
+  I think the key to its success is that it allows me to not
+  just interact with one thing over many files quickly; it
+  allows me to do so without knowing anything about where
+  the thing is, or how many things touch it beforehand.
+  <p>
+  Give it a try, and let
+  <a href="//twitter.com/nickniemeir">me</a>
+  know how you like it!
+</main>
