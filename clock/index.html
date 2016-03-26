@@ -38,7 +38,7 @@
     var hours = new Date().getHours()
     clock_face.innerHTML = getTime()
     // Change this to set what time the clock turns green. Set for 8am.
-    if (hours >= 9 && hours < 10) {
+    if (hours >= 8 && hours < 10) {
       document.body.className = 'wake'
     } else {
       document.body.className = 'sleep'
