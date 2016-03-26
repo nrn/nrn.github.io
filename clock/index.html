@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 
-<link rel="stylesheet" href="../style.css">
-
 <style>
+  html {
+    height: 100%
+  }
   body {
     height: 100%;
-    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -25,18 +25,20 @@
 
 <title>Sleepy time clock</title>
 
-<script src="../bundle/common.js"></script>
+<div id="clock_face"></div>
 
-<main>
-  <div id="clock_face"></div>
-</main>
 <script>
+  // A simple sleep time clock.
+  // displays 24hr clock,
+  // background turns from yello -> green to indicate
+  // it's is time to get out of bed.
   update()
-  window.setInterval(update(), 1000)
+  window.setInterval(update(), 60000)
   function update () {
     var hours = new Date().getHours()
     clock_face.innerHTML = getTime()
-    if (hours >= 8 && hours < 10) {
+    // Change this to set what time the clock turns green. Set for 8am.
+    if (hours >= 9 && hours < 10) {
       document.body.className = 'wake'
     } else {
       document.body.className = 'sleep'
@@ -45,6 +47,6 @@
   function getTime () {
     var time = new Date()
     var min = time.getMinutes()
-    return '' + time.getHours() + ':' + (min.length > 1 ? '' : '0') + min
+    return '' + time.getHours() + ':' + (min < 10 ? '0' : '') + min
   }
 </script>
