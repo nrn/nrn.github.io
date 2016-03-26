@@ -33,7 +33,7 @@
   // background turns from yello -> green to indicate
   // it's is time to get out of bed.
   update()
-  window.setInterval(update(), 60000)
+  window.setInterval(update, 60000)
   function update () {
     var hours = new Date().getHours()
     clock_face.innerHTML = getTime()
