@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<link rel="stylesheet" href="../style.css">
+<title>JS Frameworks April 2016</title>
+
+<nav class="top_nav">
+  <a href="../">Home</a>
+</nav>
+
+<main>
+  <h1>JS Frameworks April 2016</h1>
+
+  <p>
+  Some of these are opinions that have been brewing for a year or two, some
+  of them are brand new. Due to the rate of change in JavaScript and the
+  surrounding ecosystem they are hopefully timely, and likely have a very
+  short shelf life. As of writing, today April 3rd 2016, this is what I think
+  about choosing a JavaScript framework.
+
+  <p>
+  There is no universal best choice.
+
+  <p>
+  Optimize for change. If you look at the landscape of accelerating
+  progress in the JS ecosystem, revolutionary frameworks, new APIs, language
+  syntax, build systems, module loaders, specs, transpilers, preprocessors, and
+  etc. And think "on, they've probably got it right now, I'll just learn this
+  one thing and use it forever." You are in for a world of hurt. It just doesn't
+  work that way. If you and your code base are in this for the long haul, get
+  right with the idea you will have to evolve with the ecosystem, and abandon
+  choices you make today, frequently.
+
+  <p>
+  Componentization seems to have the most value.
+
+  <p>
+  Whatever you choose you may end up owning. There is never a guaranty that
+  a framework will continue to be maintained, that the bugs you find will
+  be of interest to the maintainers, or that they won't take it in a direction
+  incompatible with your use case. This isn't a reason not to use frameworks,
+  just a good reason not to use one you aren't willing to work on.
+
+  <p>
+  Don't rely on TodoMVC to do your thinking for you. TodoMVC has been a great
+  tool for our community for people new to a framework to be able to see how it
+  works, and grasp some of the concepts it introduces. It's been misused as a
+  tool for evaluating and comparing frameworks against each other. If you're
+  going to compare frameworks head to head, you need to do so in your problem
+  domain. Comparing how they work for writing a todo list is pretty much only
+  good for seeing how they do as a todo list app framework. Even in the rare
+  case you are doing a todo list, you need to write the examples yourself.
+  Looking at example usages of the frameworks you are considering doesn't tell
+  you how it feels to write the example, or how your team will take to
+  it. Once the choice has been made, point people to the TodoMVC app of your
+  framework of choice, to compare and contrast with your internal
+  example/starting app.
+
+  <p>
+  Angular and Ember are both frameworks looking for a problem. They arise from
+  a lot of experience and frustration with front end development, but no
+  specific use case. React was born from the best of facebook's front
+  end stack being abstracted for reuse in the instagram webapp. Being something
+  that is worked on constantly in the context of multiple flagship applications
+  has a hugely positive effect on React, where as not having that tight
+  feedback loop with serious real projects shows when you build with Angular
+  or Ember.
+
+  <p>
+  Also, just don't choose Angular 1.x. It's a dead end. As soon as you try to do
+  anything suitably complex you spend all of your time working around their
+  provided abstractions.
+
+  <p>
+  Mixed rendering applications are very painful.
+
+  <p>
+  "isomorphic" applications are a cool idea, but probably not worth the
+  limitations.
+
+</main>
