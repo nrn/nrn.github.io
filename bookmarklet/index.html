@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<link rel="stylesheet" href="../style.css">
+<title>Bookmarklet</title>
+
+<script src="../build/common.js"></script>
+
+<nav class="top_nav">
+  <a href="../">Home</a>
+</nav>
+
+<main>
+  <h1>Bookmarklet</h1>
+  <ol id="links">
+  </ol>
+
+  <p>
+  Playing with a better way of authoring bookmarklets.
+
+  <script data-title="hello world">
+console.log('hello world')
+  </script>
+  <script data-title="class/id find">
+var css = document.createElement('style');
+css.innerHTML = `
+*:hover {
+  border: 1px solid #00FF00;
+}
+*:hover::after {
+  color: #FF00FF;
+  content: attr(class) '/' attr(id);
+}
+`;
+document.body.appendChild(css);
+  </script>
+</main>
+<script>
+  var reduce = require('universal-reduce')
+  reduce(document.querySelectorAll('main script'), function (_, script) {
+    var li = document.createElement('li')
+      li.innerHTML = `<a href="javascript:;(function () { ${script.innerHTML}})();void(0);">${script.getAttribute('data-title')}</a>`
+    links.appendChild(li)
+  })
+</script>
