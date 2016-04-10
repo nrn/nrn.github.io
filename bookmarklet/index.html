@@ -21,7 +21,7 @@
 console.log('hello world')
   </script>
   <script data-title="class/id find">
-var css = document.createElement('style');
+var css = document.createElement('style')
 css.innerHTML = `
 *:hover {
   border: 1px solid #00FF00;
@@ -30,15 +30,15 @@ css.innerHTML = `
   color: #FF00FF;
   content: attr(class) '/' attr(id);
 }
-`;
-document.body.appendChild(css);
+`
+document.body.appendChild(css)
   </script>
 </main>
 <script>
   var reduce = require('universal-reduce')
   reduce(document.querySelectorAll('main script'), function (_, script) {
     var li = document.createElement('li')
-      li.innerHTML = `<a href="javascript:;(function () { ${script.innerHTML}})();void(0);">${script.getAttribute('data-title')}</a>`
+      li.innerHTML = `<a href="javascript:;(function () { ${encodeURIComponent(script.innerHTML)}})();void(0);">${script.getAttribute('data-title')}</a>`
     links.appendChild(li)
   })
 </script>
