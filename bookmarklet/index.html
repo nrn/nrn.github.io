@@ -17,28 +17,32 @@
   <p>
   Playing with a better way of authoring bookmarklets.
 
-  <script data-title="hello world">
-console.log('hello world')
+  <script data-title="hello world" data-fn-name="helloWorld">
+function helloWorld () {
+  console.log('hello world')
+}
   </script>
-  <script data-title="class/id find">
-var css = document.createElement('style')
-css.innerHTML = `
-*:hover {
-  border: 1px solid #00FF00;
+  <script data-title="class/id find" data-fn-name="highlightClassId">
+function highlightClassId () {
+  var css = document.createElement('style')
+  css.innerHTML = `
+  *:hover {
+    border: 1px solid #00FF00;
+  }
+  *:hover::after {
+    color: #FF00FF;
+    content: attr(class) '/' attr(id);
+  }
+  `
+  document.body.appendChild(css)
 }
-*:hover::after {
-  color: #FF00FF;
-  content: attr(class) '/' attr(id);
-}
-`
-document.body.appendChild(css)
   </script>
 </main>
 <script>
   var reduce = require('universal-reduce')
   reduce(document.querySelectorAll('main script'), function (_, script) {
     var li = document.createElement('li')
-      li.innerHTML = `<a href="javascript:;(function () { ${encodeURIComponent(script.innerHTML)}})();void(0);">${script.getAttribute('data-title')}</a>`
+      li.innerHTML = `<a href="javascript:;(${encodeURIComponent(window[script.getAttribute('data-fn-name')].toString())})();void(0);">${script.getAttribute('data-title')}</a>`
     links.appendChild(li)
   })
 </script>
