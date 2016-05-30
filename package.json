@@ -5,7 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "./deps.sh; ecstatic . --port=3434",
+    "start": "ecstatic . --port=3434",
     "prepublish": "./bundle-dependencies.js > build/common.js"
   },
   "author": "Nick Niemeir <nick.niemeir@gmail.com>",

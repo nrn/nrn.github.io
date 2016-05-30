@@ -48,23 +48,42 @@ right: 0;
 bottom: 0;
 backkground-color: #FFFFFF;
 `
+  var name = localStorage['bmc_name'] || 'Link Text'
   container.innerHTML = `
 <div style="background-color: #FFF; padding: 5px; margin 3px;">
-  <a id="bmc_link" href="#">link</a>
-  <button id="bmc_try" style="float: right;">try me</button>
+  <input id="bmc_name" value='${name}'></input>
+  <span> -> </span>
+  <a id="bmc_link" href="#">${name}</a>
+  <button id="bmc_try" style="float: right; background-color: #00FF00;">try me</button>
   <div>
-    <textarea id="bmc_text" wrap="off" rows="6" style="width: 100%; resize: none;"></textarea>
+    <textarea id="bmc_text" wrap="off" rows="6" style="width: 99%; resize: none;"></textarea>
   </div>
 </div>
 `
   document.body.appendChild(container)
+  var bmc_text = document.getElementById('bmc_text')
+  var bmc_try = document.getElementById('bmc_try')
+  var bmc_name = document.getElementById('bmc_name')
+  var bmc_link = document.getElementById('bmc_link')
 
-  var code = bmc_text.value = localStorage['bookmarklet_script'] || ''
+  var code = bmc_text.value = localStorage['bmc_script'] || `alert(\`
+Write some JavaScript here!
+Press try me to execute it on this page.
+Bookmark the link and remove everything up to and including the '#'
+to make a reusable bookmarklet.
+\`)
+`
+
   update(code)
   bmc_text.addEventListener('input', function (e) {
     var code = bmc_text.value
-    localStorage['bookmarklet_script'] = code
+    localStorage['bmc_script'] = code
     update(code)
+  })
+  bmc_name.addEventListener('input', function (e) {
+    var name = bmc_name.value
+    localStorage['bmc_name'] = name
+    bmc_link.innerHTML = name
   })
   bmc_try.addEventListener('click', function (e) {
     var code = bmc_text.value
