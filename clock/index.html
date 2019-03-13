@@ -19,7 +19,7 @@
     background-color: yellow;
   }
   .wake {
-    background-color: green;
+    background-color: #0F0;
   }
 </style>
 
@@ -28,17 +28,20 @@
 <div id="clock_face"></div>
 
 <script>
-  // A simple sleep time clock.
-  // displays 24hr clock,
-  // background turns from yello -> green to indicate
-  // it's is time to get out of bed.
+console.log(`
+A simple sleep time clock. Displays a 24hr clock,
+background turns from yello -> green to indicate it's is time to get out of bed.
+set the weakup time as a military time, like: okToWake = 615
+for 615 (which is the default, because that's when my kids can get out of bed)
+`)
+  okToWake = 615
   update()
   window.setInterval(update, 60000)
   function update () {
-    var hours = new Date().getHours()
+    var time = new Date()
+    var milTime = 100 * time.getHours() + time.getMinutes()
     clock_face.innerHTML = getTime()
-    // Change this to set what time the clock turns green. Set for 8am.
-    if (hours >= 8 && hours < 10) {
+    if (milTime >= okToWake && milTime < (okToWake + 300)) {
       document.body.className = 'wake'
     } else {
       document.body.className = 'sleep'

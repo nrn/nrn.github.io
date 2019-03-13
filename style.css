@@ -8,7 +8,7 @@ main {
   margin-right: auto;
   margin-left: auto;
 }
-main script {
+script.example {
   display: flex;
   white-space: pre;
   font-family: monospace;

@@ -17,12 +17,12 @@
   <p>
   Playing with a better way of authoring bookmarklets.
 
-  <script data-title="hello world" data-fn-name="helloWorld">
+  <script class="example"  data-title="hello world" data-fn-name="helloWorld">
 function helloWorld () {
   console.log('hello world')
 }
   </script>
-  <script data-title="class/id find" data-fn-name="highlightClassId">
+  <script class="example"  data-title="class/id find" data-fn-name="highlightClassId">
 function highlightClassId () {
   var css = document.createElement('style')
   css.innerHTML = `
@@ -37,7 +37,7 @@ function highlightClassId () {
   document.body.appendChild(css)
 }
   </script>
-  <script data-title="bookmarklet" data-fn-name="bookmarklet">
+  <script class="example"  data-title="bookmarklet" data-fn-name="bookmarklet">
 function bookmarklet () {
 
   var container = document.createElement('div')
