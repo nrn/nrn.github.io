@@ -11,11 +11,11 @@
   "author": "Nick Niemeir <nick.niemeir@gmail.com>",
   "license": "ISC",
   "devDependencies": {
-    "browserify": "^13.0.0",
-    "ecstatic": "^1.4.0"
+    "browserify": "16.2.3",
+    "ecstatic": "3.3.1"
   },
   "dependencies": {
-    "photocopy": "^3.2.3",
-    "universal-reduce": "^3.1.0"
+    "photocopy": "3.2.5",
+    "universal-reduce": "3.1.0"
   }
 }
