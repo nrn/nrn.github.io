@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="../style.css">
+
+<title>Best Practices</title>
+
+<script src="../build/common.js"></script>
+
+<nav class="top_nav">
+  <a href="../">Home</a>
+</nav>
+
+<main>
+  <h1>Best Practices</h1>
+
+  <p>This post isn't about any particular "Best Practices", but rather about
+  the idea of "Best Practices" as a whole. It's natural to want a list of dos
+  and do nots, especially if you're new, or unsure of yourself in an area. But
+  life is rarely that simple. Nearly every practice has a context where it can
+  be good or bad, usually even best or worst. Calling one thing out as a "Best
+  Practice" is championing that one way above all others, in all situations.
+  Sometimes this is done in an attempt to help by simplifying a complex topic,
+  sometimes it's parroting advice from another source who may have been in a
+  different situation, sometimes it's just plain ignorance of other things that
+  could be done, and sometimes it's used maliciously in an attempt to undermine
+  other people's suggestions.
+
+  <p>A few things can be safely generalized, in that the context is so broad
+  that exceptions may not be worth mentioning. Don't run next to the pool,
+  unless you are saving someone from drowning. Don't use the "with" keyword in
+  JavaScript, unless you are saving someone from drowning. These are things
+  that I would be comfortable citing as "Best Practices" without their
+  attending caveats. 
+
+  <p>Other things that seem safe really do have a lot of subtlety around them.
+  One common Best Practice is "gzip your http responses"... well usually, but
+  for small payloads gzip may not save any space. And it always takes some CPU
+  (energy and time). So even though gzipping your responses is really good
+  advice, you still need to think about how it applies to what you're doing.
+  For example, if you were serving a bunch of unique &lt; 1kb latency sensitive
+  responses on the LAN from a raspberry pi 0 attached to a battery, well then
+  gzip is worse than useless, it's counter productive in every way.
+
+  <p>So, what's the alternative to espousing everything as a "Best Practice"?
+  Talk about practices <strong>with</strong> the goal they achieve or problem
+  they solve and the context in which they are proven to work in practice. Now,
+  some more astute readers will be ready to butt in here and point out that
+  that is essentially the definition of a Software Pattern. I noticed that too!
+  We have a method of discussing solutions in non-absolute terms, we just
+  don't.  There are probably a lot of reasons for this, you can't fit a well
+  reasoned pattern into 140 or even 250 characters to tweet it, looking at all
+  sides of the issue doesn't help you promote the use of your favorite tech
+  over others, and quite honestly it's a lot of work and we're lazy creatures.
+
+  <p>Having seen this misused by people furthering their own agenda recently,
+  I'm going to make a renewed effort to be less binary in my discussions of
+  technologies and practices, and read more in depth about patterns to help
+  myself do a better job.
+  
+  <p>p.s. Anti-patterns should also be discussed with goals, context in which
+  they don't work, and why they might appear appealing to try. In modern usage
+  the term has become an absolute like "Best Practices" used to stomp all over
+  someone who is trying something, without leaving room for a nuanced
+  discussion.
+
+</main>
