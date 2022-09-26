@@ -21,9 +21,19 @@
   .wake {
     background-color: #0F0;
   }
+  #time-picker {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
 </style>
 
 <title>Sleepy time clock</title>
+
+<div id="time-picker">
+  <label for="wake-time">Ok to wake: </label>
+  <input id="wake-time" type="time"></input>
+</div>
 
 <div id="clock_face"></div>
 
@@ -31,12 +41,19 @@
 console.log(`
 A simple sleep time clock. Displays a 24hr clock,
 background turns from yello -> green to indicate it's is time to get out of bed.
-set the weakup time as a military time, like: okToWake = 615
-for 615 (which is the default, because that's when my kids can get out of bed)
+700 is the default, because that's when my kids can get out of bed
 `)
-  okToWake = 615
+
+  okToWake = +localStorage.getItem('wake-time') || wakeTime()
+  document.getElementById('wake-time').value = clockFormat(okToWake)
+  document.getElementById('wake-time').addEventListener('change', function () {
+    let newTime = wakeTime()
+    localStorage.setItem('wake-time', newTime)
+    okToWake = newTime
+  })
   update()
-  window.setInterval(update, 60000)
+  window.setInterval(update, 30000)
+
   function update () {
     var time = new Date()
     var milTime = 100 * time.getHours() + time.getMinutes()
@@ -51,5 +68,14 @@ for 615 (which is the default, because that's when my kids can get out of bed)
     var time = new Date()
     var min = time.getMinutes()
     return '' + time.getHours() + ':' + (min < 10 ? '0' : '') + min
+  }
+  function wakeTime () {
+    return +document.getElementById('wake-time').value.split(':').join('') || 700
+  }
+  function digit (num, base) {
+    return Math.floor((num % (base*10))/base)
+  }
+  function clockFormat (num) {
+    return `${digit(num, 1000)}${digit(num, 100)}:${digit(num, 10)}${digit(num, 1)}`
   }
 </script>

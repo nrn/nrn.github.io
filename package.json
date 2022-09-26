@@ -12,7 +12,7 @@
   "license": "ISC",
   "devDependencies": {
     "browserify": "16.2.3",
-    "ecstatic": "3.3.1"
+    "ecstatic": "^4.1.4"
   },
   "dependencies": {
     "photocopy": "3.2.5",
