@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+
+<div id=display>
+  0
+</div>
+<button id=button>+</button>
+
+<script>
+  document.getElementById('display').innerHTML = localStorage.getItem('count')
+  document.getElementById('button').addEventListener('click', function () {
+    let num = +localStorage.getItem('count') + 1
+    document.getElementById('display').innerHTML = num
+    localStorage.setItem('count', +num)
+  })
+  window.addEventListener('focus', function () {
+    document.getElementById('display').innerHTML = localStorage.getItem('count')
+  })
+</script>
