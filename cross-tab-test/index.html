@@ -6,13 +6,23 @@
 <button id=button>+</button>
 
 <script>
-  document.getElementById('display').innerHTML = localStorage.getItem('count')
-  document.getElementById('button').addEventListener('click', function () {
-    let num = +localStorage.getItem('count') + 1
-    document.getElementById('display').innerHTML = num
-    localStorage.setItem('count', +num)
+  let count = 0
+  let chan = new BroadcastChannel('asdf')
+  chan.addEventListener('message', function (evt) {
+    if (evt.data.type === 'hello') {
+      chan.postMessage({type:'count', data:count})
+    } else if (evt.data.type === 'count') {
+      count = evt.data.data
+      update()
+    }
   })
-  window.addEventListener('focus', function () {
-    document.getElementById('display').innerHTML = localStorage.getItem('count')
+  chan.postMessage({type: 'hello'})
+  function update () {
+    document.getElementById('display').innerHTML = count
+  }
+  document.getElementById('button').addEventListener('click', function () {
+    count += 1
+    chan.postMessage({type:'count', data:count})
+    update()
   })
 </script>
